@@ -7,7 +7,7 @@ from models import User
 
 class UsersSQLiteRepository:
     
-    def __init__(self):
+    def __init__(self, con):
         self.connection = con
 
     def all(self):

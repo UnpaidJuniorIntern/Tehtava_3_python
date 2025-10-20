@@ -5,7 +5,7 @@ from models import Product
 
 class ProductsSQLiteRepository:
     
-    def __init__(self):
+    def __init__(self, con):
         self.connection = con
 
     @staticmethod

@@ -11,10 +11,6 @@ from repositories.factories import create_users_repository
 def get_all_users_handler(repo):
     try:
 
-        # repoa ei luoda enää tässä,
-        # vaan se injektoidaan käyttämällä get_users_repository-dekoraattoria
-
-        # repo = create_users_repository()
         users = repo.all()
         users_list = []
         for user in users:
@@ -28,7 +24,6 @@ def get_all_users_handler(repo):
 @get_users_repository
 def get_user_by_id_handler(repo, user_id):
     try:
-        # repo = create_users_repository()
         user = repo.get_by_id(user_id)
         if user is None:
             return jsonify({'error': 'user not found'}), 404
@@ -50,7 +45,6 @@ def add_user_handler(repo):
     """
 
     try:
-        # repo = create_users_repository()
         request_data = request.get_json()
         username = request_data.get('username', None)
         first_name = request_data.get('first_name', None)
@@ -69,8 +63,6 @@ def add_user_handler(repo):
 @get_users_repository
 def update_user_handler(repo, user_id):
     try:
-        # repo = create_users_repository()
-
         request_data = request.get_json()
         username = request_data.get('username', None)
         first_name = request_data.get('first_name', None)
@@ -90,7 +82,6 @@ def update_user_handler(repo, user_id):
 @get_users_repository
 def remove_user_handler(repo, user_id):
     try:
-        # repo = create_users_repository()
         removed = repo.remove_by_id(user_id)
         if not removed:
             return jsonify({'error': 'error removing user'}), 400
