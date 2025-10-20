@@ -10,7 +10,7 @@ def get_products_repository(route_handler_func):
         with sqlite3.connect('tuntiharjoitus1.db') as con:
 
             # annetan con-muuttuja factorylle parametrina
-            users_repository = create_products_repository(con)
+            products_repository = create_products_repository(con)
             
             return route_handler_func(products_repository, *args, **kwargs)
         #muista wrapper funktio pitää palauttaa dekoraattorin lopussa ilman sulkuja
