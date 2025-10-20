@@ -3,7 +3,7 @@ from flask import Response, jsonify, request
 from decorators.product_repository import get_products_repository
 from repositories.factories import create_products_repository
 
-def get_all_products_handler():
+def get_all_products_handler(repo):
     
     try:
         products = repo.all()
@@ -15,7 +15,7 @@ def get_all_products_handler():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
     
-def get_product_by_id_handler(product_id):
+def get_product_by_id_handler(repo, product_id):
     try:
         product = repo.get_by_id(product_id)
         if product is None:
@@ -25,7 +25,7 @@ def get_product_by_id_handler(product_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
     
-def add_product_handler():
+def add_product_handler(repo):
 
     try:
         request_data = request.get_json()
@@ -41,7 +41,7 @@ def add_product_handler():
         return jsonify({'error': str(e)}), 500
     
     
-def update_product_handler(product_id):
+def update_product_handler(repo, product_id):
 
     try:
         request_data = request.get_json()
@@ -60,7 +60,7 @@ def update_product_handler(product_id):
         return jsonify({'error': str(e)}), 500
     
     
-def remove_product_handler(product_id):
+def remove_product_handler(repo, product_id):
 
     try:
         removed = repo.remove_by_id(product_id)
