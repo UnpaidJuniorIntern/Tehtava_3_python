@@ -4,11 +4,7 @@ import models
 from models import Product
 
 class ProductsSQLiteRepository:
-    # avataan tietokantayhteys luokan konstruktorissa
-
-    # HUOM: tietokantayhteyden avaaminen kannattaa tehdä toisin
-    # mutta käymme sen läpi vasta Dependency Injection-osiossa
-
+    
     def __init__(self):
         self.connection = con
 

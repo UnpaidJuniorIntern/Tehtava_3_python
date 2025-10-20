@@ -1,5 +1,6 @@
 # decorators/product_repository
 
+import sqlite3
 from repositories.factories import create_products_repository
 
 def get_products_repository(route_handler_func):

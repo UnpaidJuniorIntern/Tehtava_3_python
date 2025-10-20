@@ -6,16 +6,9 @@ import models
 from models import User
 
 class UsersSQLiteRepository:
-    # avataan tietokantayhteys luokan konstruktorissa
-
-    # HUOM: tietokantayhteyden avaaminen kannattaa tehdä toisin
-    # mutta käymme sen läpi vasta Dependency Injection-osiossa
-
+    
     def __init__(self):
         self.connection = con
-    # suljetaan tietokantayhteys destruktorissa
-    # HUOM: tietokantayhteyden sulkeminen kannattaa tehdä toisin
-    # mutta käymme sen läpi vasta Dependency Injection-osiossa
 
     def all(self):
 

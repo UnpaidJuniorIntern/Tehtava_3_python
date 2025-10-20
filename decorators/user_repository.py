@@ -1,5 +1,6 @@
 # decorators/user_repository
 
+import sqlite3
 from repositories.factories import create_users_repository
 
 def get_users_repository(route_handler_func):
