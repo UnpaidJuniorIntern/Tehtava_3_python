@@ -3,7 +3,7 @@
 
 from flask import jsonify, request, Response
 
-from decorators.users_repository import get_users_repository
+from decorators.user_repository import get_users_repository
 from repositories.factories import create_users_repository
 
 # tässä voidaan käyttää nyt omaa dekoraattoria
