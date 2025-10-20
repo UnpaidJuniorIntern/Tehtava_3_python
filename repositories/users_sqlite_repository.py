@@ -13,19 +13,10 @@ class UsersSQLiteRepository:
     # mutta käymme sen läpi vasta Dependency Injection-osiossa
 
     def __init__(self):
-        self.connection = sqlite3.connect('tuntiharjoitus1.db')
-
-
+        self.connection = con
     # suljetaan tietokantayhteys destruktorissa
-
-
     # HUOM: tietokantayhteyden sulkeminen kannattaa tehdä toisin
     # mutta käymme sen läpi vasta Dependency Injection-osiossa
-
-    def __del__(self):
-        if self.connection is not None:
-            self.connection.close()
-
 
     def all(self):
 
