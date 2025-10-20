@@ -6,14 +6,14 @@ from repositories.products_sqlite_repository import ProductsSQLiteRepository
 
 # pythonin tapauksessa voidaan luoda jokaiselle repositoriolle oma
 # funktio, jota kutsutaan controllerissa
-def create_users_repository():
+def create_users_repository(con):
     # jos repositorio muuttuu tietokannan vaihtuessa,
     # muutos voidaan tehdä vain tänne yhteen paikkaan
     # ja kaikki controllerit, joissa usersRepositorya tarvitaan
     # käyttävät palautettavaa instanssia
     
-    return UsersSQLiteRepository()
+    return UsersSQLiteRepository(con)
 
-def create_products_repository():
+def create_products_repository(con):
 
-    return ProductsSQLiteRepository()
+    return ProductsSQLiteRepository(con)
