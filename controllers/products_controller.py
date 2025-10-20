@@ -1,11 +1,11 @@
 from flask import Response, jsonify, request
-from repositories.products_sqlite_repository import ProductsSQLiteRepository
+
+from decorators.product_repository import get_products_repository
 from repositories.factories import create_products_repository
 
 def get_all_products_handler():
     
     try:
-        repo = create_products_repository()
         products = repo.all()
         products_list = []
         for product in products:
@@ -17,7 +17,6 @@ def get_all_products_handler():
     
 def get_product_by_id_handler(product_id):
     try:
-        repo = create_products_repository()
         product = repo.get_by_id(product_id)
         if product is None:
             return jsonify({'error': 'product not found'}), 404
@@ -29,7 +28,6 @@ def get_product_by_id_handler(product_id):
 def add_product_handler():
 
     try:
-        repo = create_products_repository()
         request_data = request.get_json()
         name = request_data.get('name', None)
 
@@ -46,7 +44,6 @@ def add_product_handler():
 def update_product_handler(product_id):
 
     try:
-        repo = create_products_repository()
         request_data = request.get_json()
         name = request_data.get('name', None)
 
@@ -66,7 +63,6 @@ def update_product_handler(product_id):
 def remove_product_handler(product_id):
 
     try:
-        repo = create_products_repository()
         removed = repo.remove_by_id(product_id)
         if not removed:
             return jsonify({'error': 'error removing product'}), 400
