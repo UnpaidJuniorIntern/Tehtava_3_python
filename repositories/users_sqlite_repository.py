@@ -5,7 +5,6 @@ import sqlite3
 import models
 from models import User
 
-
 class UsersSQLiteRepository:
     # avataan tietokantayhteys luokan konstruktorissa
 

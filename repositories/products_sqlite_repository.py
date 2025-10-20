@@ -10,15 +10,7 @@ class ProductsSQLiteRepository:
     # mutta käymme sen läpi vasta Dependency Injection-osiossa
 
     def __init__(self):
-        self.connection = sqlite3.connect('tuntiharjoitus1.db')
-
-    # suljetaan tietokantayhteys destruktorissa
-    # HUOM: tietokantayhteyden sulkeminen kannattaa tehdä toisin
-    # mutta käymme sen läpi vasta Dependency Injection-osiossa
-
-    def __del__(self):
-        if self.connection is not None:
-            self.connection.close()
+        self.connection = con
 
     @staticmethod
     def get_all():
